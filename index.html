@@ -63,11 +63,12 @@
         /* Sidebar */
         .sidebar {
             position: fixed;
-            left: 15px;
-            top: 15px;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 30px;
             z-index: 100;
         }
 
@@ -76,30 +77,33 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            padding: 8px;
+            padding: 15px;
             transition: all 0.2s ease;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
         }
 
         .icon:hover {
             transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .icon svg {
-            width: 40px;
-            height: 40px;
+            width: 80px;
+            height: 80px;
         }
 
-        .icon.tiktok svg {
-            fill: none;
+        .icon.instagram svg {
+            fill: url(#instagram-gradient);
         }
 
         .icon.x-btn svg {
-            fill: #000;
+            fill: #fff;
         }
 
         .icon span {
-            margin-top: 4px;
-            font-size: 10px;
+            margin-top: 8px;
+            font-size: 14px;
             color: #fff;
             font-weight: bold;
             text-shadow: 0 1px 3px rgba(0,0,0,0.8);
@@ -132,6 +136,31 @@
             height: 24px;
             fill: #000;
         }
+
+        /* About button */
+        .about-btn {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .about-btn a {
+            display: block;
+            padding: 25px 60px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .about-btn a:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
     </style>
 </head>
 <body>
@@ -150,20 +179,33 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#" class="icon tiktok" target="_blank">
-            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <path d="M38.4 16.2c-2.94 0-5.55-1.35-7.29-3.45-.03-.03-.06-.09-.09-.12V31.5c0 6.63-5.37 12-12 12s-12-5.37-12-12 5.37-12 12-12c.66 0 1.29.06 1.92.15v6.15c-.63-.15-1.26-.3-1.92-.3-3.315 0-6 2.685-6 6s2.685 6 6 6 6-2.685 6-6V4.5h6c0 .39.03.78.09 1.17.48 3.27 2.91 5.88 6.09 6.51.63.12 1.26.18 1.92.18v3.84h-.72z" fill="#ff0050"/>
-                <path d="M38.4 16.2c-2.94 0-5.55-1.35-7.29-3.45-.03-.03-.06-.09-.09-.12V31.5c0 6.63-5.37 12-12 12s-12-5.37-12-12 5.37-12 12-12c.66 0 1.29.06 1.92.15v6.15c-.63-.15-1.26-.3-1.92-.3-3.315 0-6 2.685-6 6s2.685 6 6 6 6-2.685 6-6V4.5h6c0 .39.03.78.09 1.17.48 3.27 2.91 5.88 6.09 6.51.63.12 1.26.18 1.92.18v3.84h-.72z" fill="#00f2ea" transform="translate(-2, -2)"/>
+        <a href="https://www.instagram.com/midwitsolana/" class="icon instagram" target="_blank">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#FFDC80"/>
+                        <stop offset="25%" style="stop-color:#F77737"/>
+                        <stop offset="50%" style="stop-color:#E1306C"/>
+                        <stop offset="75%" style="stop-color:#C13584"/>
+                        <stop offset="100%" style="stop-color:#833AB4"/>
+                    </linearGradient>
+                </defs>
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="url(#instagram-gradient)"/>
             </svg>
-            <span>TikTok</span>
+            <span>Instagram</span>
         </a>
 
-        <a href="#" class="icon x-btn" target="_blank">
-            <svg viewBox="0 0 24 24" fill="#fff">
+        <a href="https://x.com/MidwitCoinX" class="icon x-btn" target="_blank">
+            <svg viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
             <span>X</span>
         </a>
+    </div>
+
+    <!-- About Button -->
+    <div class="about-btn">
+        <a href="about.html">ABOUT</a>
     </div>
 
     <!-- Sound Button -->
